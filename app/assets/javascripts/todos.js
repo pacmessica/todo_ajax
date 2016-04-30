@@ -76,7 +76,7 @@ function createTodo(title) {
       updateCounters();
     })
 
-    message(function(error) {
+    .fail(function(error) {
       console.log(error);
 
       error_message = error.responseJSON.title[0];
@@ -99,7 +99,8 @@ function submitTodo(event) {
   event.preventDefault();
   resetErrors();
   createTodo($("#todo_title").val());
-  $("#todo_title").val(null);
+  console.log('hi');
+  $("#todo_title").val('');
   updateCounters();
 }
 
